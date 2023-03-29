@@ -660,11 +660,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followTarget: {fileID: 2042747888}
-  followSpeed: 5
-  maxDistance: 2
-  minDistance: 0.5
-  followOffset: {x: 0.24, y: 0, z: -2.86}
+  rotationTarget: {fileID: 2042747888}
+  followSpeed: 6
+  maxDistance: 3
+  minDistance: 1.5
+  followOffset: {x: 0, y: 0, z: 0}
   anim: {fileID: 1225125392}
+  jumpForce: 5
 --- !u!65 &1589057484
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -736,7 +738,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1589057482}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.02, y: -1, z: -1.96}
+  m_LocalPosition: {x: -0.02, y: 1, z: -3.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1049,6 +1051,11 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 2211126460430936001, guid: 257c304c754d3b247a51ef5bea7a90d0, type: 3}
   m_PrefabInstance: {fileID: 1800880286}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1800880289 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1328023254706044480, guid: 257c304c754d3b247a51ef5bea7a90d0, type: 3}
+  m_PrefabInstance: {fileID: 1800880286}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1823438639
 GameObject:
   m_ObjectHideFlags: 0
@@ -1141,7 +1148,7 @@ Transform:
   m_GameObject: {fileID: 1823438639}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.55, y: 0, z: 7.39}
-  m_LocalScale: {x: 6.4139996, y: 1.2828, z: 6.4139996}
+  m_LocalScale: {x: 86.2175, y: 17.2435, z: 86.2175}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1362,6 +1369,9 @@ MonoBehaviour:
   controller: {fileID: 0}
   gravityScale: 5
   anim: {fileID: 1800880288}
+  pivot: {fileID: 2042747888}
+  rotateSpeed: 10
+  playerModel: {fileID: 1800880289}
 --- !u!143 &2042747891
 CharacterController:
   m_ObjectHideFlags: 0
