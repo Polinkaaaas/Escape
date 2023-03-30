@@ -50,7 +50,10 @@ public float jumpForce;
         targetPosition += followOffset;
 
         // Плавно перемещаем питомца к целевой позиции
-        transform.position = Vector3.Lerp(transform.position, targetPosition, followSpeed * Time.deltaTime);
+        Vector3 pos = Vector3.Lerp(transform.position, targetPosition, followSpeed * Time.deltaTime);
+		pos.y = followTarget.transform.position.y;
+		transform.position = pos;
+
 
         // Поворачиваем питомца в направлении таргета
         Vector3 rotationDirection = rotationTarget.position - transform.position;
