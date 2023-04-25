@@ -14,31 +14,39 @@ public class PlayerController : MonoBehaviour
     public Transform pivot;
     public float rotateSpeed;
     public GameObject playerModel;
-    void Start()
-    {
-        controller = GetComponent<CharacterController>();
-    }
-
+    public float knockBackForce;
+    public float knockBackTime;
+    private float knockBackCounter;
+    
+ 
 
     void Update()
     {
 
        // moveDirection = new Vector3(Input.GetAxis("Horizontal") * moveSpeed, moveDirection.y, Input.GetAxis("Vertical") * moveSpeed);
-       float yStore = moveDirection.y;      
-       moveDirection = (transform.forward * Input.GetAxis("Vertical")) + (transform.right * Input.GetAxis("Horizontal"));
-       moveDirection = moveDirection.normalized * moveSpeed;
-       moveDirection.y = yStore;
-       
-        if (controller.isGrounded)
-        {
-            moveDirection.y = 0f;
-            if (Input.GetButtonDown("Jump"))
-            {
-                moveDirection.y = jumpForce;
-            }
-        }
+       if (knockBackCounter <= 0)
+       {
+           float yStore = moveDirection.y;
+           moveDirection = (transform.forward * Input.GetAxis("Vertical")) +
+                           (transform.right * Input.GetAxis("Horizontal"));
+           moveDirection = moveDirection.normalized * moveSpeed;
+           moveDirection.y = yStore;
 
-        moveDirection.y = moveDirection.y + (Physics.gravity.y * gravityScale* Time.deltaTime);
+           if (controller.isGrounded)
+           {
+               moveDirection.y = 0f;
+               if (Input.GetButtonDown("Jump"))
+               {
+                   moveDirection.y = jumpForce;
+               }
+           }
+       }
+       else
+       {
+           knockBackCounter -= Time.deltaTime;
+       }
+
+       moveDirection.y = moveDirection.y + (Physics.gravity.y * gravityScale* Time.deltaTime);
         controller.Move(moveDirection * Time.deltaTime);
         
         //move the player in different directions based on camera look direction 
@@ -53,6 +61,14 @@ public class PlayerController : MonoBehaviour
         
         anim.SetBool("isGrounded", controller.isGrounded);
         anim.SetFloat("Speed", (Mathf.Abs(Input.GetAxis("Vertical")) + Mathf.Abs(Input.GetAxis("Horizontal"))));
+    }
+
+    public void KnockBack(Vector3 direction)
+    {
+        knockBackCounter = knockBackTime;
+
+        moveDirection = direction * knockBackForce;
+        moveDirection.y = knockBackForce;
     }
 }
 
