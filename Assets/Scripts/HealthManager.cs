@@ -41,7 +41,7 @@ public class HealthManager : MonoBehaviour
             if (currentHealth <= 0)
             {
                 deathText.text = "DEATH!";
-                await Task.Delay(3000);
+                await Task.Delay(1000);
                 SceneManager.LoadScene(0);
             }
             else
