@@ -45,7 +45,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 71d7dfff08573486cb66eecc0b455e35, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 71d7dfff08573486cb66eecc0b455e35, type: 3}
       propertyPath: m_LocalPosition.y
@@ -83,6 +83,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 94548945256366160, guid: 71d7dfff08573486cb66eecc0b455e35, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 94548945256366160, guid: 71d7dfff08573486cb66eecc0b455e35, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 94548945256366160, guid: 71d7dfff08573486cb66eecc0b455e35, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.00000011920929
+      objectReference: {fileID: 0}
+    - target: {fileID: 94548945256366160, guid: 71d7dfff08573486cb66eecc0b455e35, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 94548945256366160, guid: 71d7dfff08573486cb66eecc0b455e35, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -80.168
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 71d7dfff08573486cb66eecc0b455e35, type: 3}
       propertyPath: m_Name
       value: beebzzz
@@ -93,6 +113,27 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d248bfcc5eb514a7aa59ccbb437426b9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71d7dfff08573486cb66eecc0b455e35, type: 3}
+--- !u!1 &2681843495509824184 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 71d7dfff08573486cb66eecc0b455e35, type: 3}
+  m_PrefabInstance: {fileID: 3023810507925827561}
+  m_PrefabAsset: {fileID: 0}
+--- !u!111 &7955397438556446112
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2681843495509824184}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 016e31d91980743a89f534aeb44240c6, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: d6090d246f68046638173b4c1f4746b5, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!4 &3349555382472034306 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 71d7dfff08573486cb66eecc0b455e35, type: 3}
