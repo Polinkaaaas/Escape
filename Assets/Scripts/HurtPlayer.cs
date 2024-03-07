@@ -5,17 +5,6 @@ using UnityEngine;
 public class HurtPlayer : MonoBehaviour
 {
     public int damageToGive = 1;
-    
-    void Start()
-    {
-        
-    }
-
-   
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider other)
     {
