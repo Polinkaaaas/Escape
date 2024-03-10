@@ -49,6 +49,7 @@ public class HealthManager : MonoBehaviour
         {
             Destroy(thePet);
             currentHealthPlayer -= damage;
+            thePlayer.KnockBack(direction.Value);
             UpdateHealthBarPlayer();
             if (currentHealthPlayer <= 0)
             {
@@ -96,20 +97,15 @@ public class HealthManager : MonoBehaviour
     {
         healthBarPet.fillAmount = (float)currentHealthPet / maxHealthPet;
     }
-    
-    
-    /*public void Respawn()
-    {
-        thePlayer.transform.position = respawnPoint;
-        currentHealth = maxHealthl;
-    }
-    */
+
+    //птица не может хилиться, только гг
     public void HealPlayer(int healAmount)
     {
-        currentHealthPlayer += healAmount;
-        if (currentHealthPlayer > maxHealthlPlayer)
-        {
-            currentHealthPlayer = maxHealthlPlayer;
-        }
+            currentHealthPlayer += healAmount;
+            UpdateHealthBarPlayer();
+            if (currentHealthPlayer > maxHealthlPlayer)
+            {
+                currentHealthPlayer = maxHealthlPlayer;
+            }
     }
 }

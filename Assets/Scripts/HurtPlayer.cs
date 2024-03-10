@@ -5,6 +5,7 @@ using UnityEngine;
 public class HurtPlayer : MonoBehaviour
 {
     public int damageToGive = 1;
+    public AudioSource hurtSound;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -13,6 +14,7 @@ public class HurtPlayer : MonoBehaviour
             Vector3 hitDirection = other.transform.position - transform.position;
             hitDirection = hitDirection.normalized;
             FindObjectOfType<HealthManager>().HurtPlayer(damageToGive, hitDirection);
+            Instantiate(hurtSound, transform.position, transform.rotation);
         }
     }
 }

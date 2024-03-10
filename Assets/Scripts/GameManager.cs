@@ -39,5 +39,6 @@ public class GameManager : MonoBehaviour
         keysText.gameObject.SetActive(true);
         doorText.text = "";
     }
+    
 }
 
