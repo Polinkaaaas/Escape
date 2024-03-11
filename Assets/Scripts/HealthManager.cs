@@ -23,6 +23,11 @@ public class HealthManager : MonoBehaviour
     public TextMeshProUGUI deathText;
     //public TextMeshProUGUI deathPetText;
     
+    
+    public delegate void HealthUpdateEventHandler();
+    public static event HealthUpdateEventHandler OnHealthUpdate;
+
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -44,11 +49,11 @@ public class HealthManager : MonoBehaviour
     {
         
         currentHealthPet -= damage;
+        UpdateHealthBarPet();
         if (direction != null)
         {
             thePlayer.KnockBack(direction.Value);
         }
-        UpdateHealthBarPet();
         if (currentHealthPet <= 0)
         {
             Destroy(thePet);
@@ -96,10 +101,14 @@ public class HealthManager : MonoBehaviour
     private void UpdateHealthBarPlayer()
     {
         healthBarPlayer.fillAmount = (float)currentHealthPlayer / maxHealthlPlayer;
+        if (OnHealthUpdate != null)
+            OnHealthUpdate();
     }
     private void UpdateHealthBarPet()
     {
         healthBarPet.fillAmount = (float)currentHealthPet / maxHealthPet;
+        if (OnHealthUpdate != null)
+            OnHealthUpdate();
     }
 
     //птица не может хилиться, только гг
