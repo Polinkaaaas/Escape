@@ -44,6 +44,10 @@ public class HealthManager : MonoBehaviour
     {
         
         currentHealthPet -= damage;
+        if (direction != null)
+        {
+            thePlayer.KnockBack(direction.Value);
+        }
         UpdateHealthBarPet();
         if (currentHealthPet <= 0)
         {
