@@ -30,6 +30,14 @@ public class Thirst : MonoBehaviour
         nextDamageTime = Time.time + damageInterval;
         StartCoroutine(ThirstDecrease());
     }
+    public void InitializeThirstLogic()
+    {
+        currentThirst = maxThirst;
+        UpdateThirstBar();
+        startTime = Time.time;
+        nextDamageTime = Time.time + damageInterval;
+        StartCoroutine(ThirstDecrease());
+    }
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -41,14 +49,7 @@ public class Thirst : MonoBehaviour
             InitializeThirstLogic();
         }
     }
-    public void InitializeThirstLogic()
-    {
-        currentThirst = maxThirst;
-        UpdateThirstBar();
-        startTime = Time.time;
-        nextDamageTime = Time.time + damageInterval;
-        StartCoroutine(ThirstDecrease());
-    }
+   
     private void Update()
     {
         if (currentThirst <= 0)
