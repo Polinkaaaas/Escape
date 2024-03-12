@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HealPlayer : MonoBehaviour
 {
-    public int healAmount = 1;
+    public int healAmount;
     public GameObject pickupEffect;
     public AudioSource pickupSound;
 

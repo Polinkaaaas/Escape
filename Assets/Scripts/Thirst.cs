@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Thirst : MonoBehaviour
 {
@@ -29,7 +30,25 @@ public class Thirst : MonoBehaviour
         nextDamageTime = Time.time + damageInterval;
         StartCoroutine(ThirstDecrease());
     }
-
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "DesertScene")
+        {
+            InitializeThirstLogic();
+        }
+    }
+    public void InitializeThirstLogic()
+    {
+        currentThirst = maxThirst;
+        UpdateThirstBar();
+        startTime = Time.time;
+        nextDamageTime = Time.time + damageInterval;
+        StartCoroutine(ThirstDecrease());
+    }
     private void Update()
     {
         if (currentThirst <= 0)
@@ -59,12 +78,17 @@ public class Thirst : MonoBehaviour
             }
         }
     }
-
+    
     void UpdateThirstBar()
     {
         thirstBar.fillAmount = (float) currentThirst / maxThirst;
         if (OnThirstUpdate != null)
             OnThirstUpdate();
     }
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
 }
+
 

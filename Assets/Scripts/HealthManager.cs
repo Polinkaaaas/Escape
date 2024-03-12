@@ -58,7 +58,10 @@ public class HealthManager : MonoBehaviour
         {
             Destroy(thePet);
             currentHealthPlayer -= damage;
-            thePlayer.KnockBack(direction.Value);
+            if (direction != null)
+            {
+                thePlayer.KnockBack(direction.Value);
+            }
             UpdateHealthBarPlayer();
             if (currentHealthPlayer <= 0)
             {
