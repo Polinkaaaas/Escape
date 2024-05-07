@@ -1,10 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed;
+    public int playerDamage = 15;
     public float jumpForce;
     public CharacterController controller;
     private Vector3 moveDirection;
@@ -16,37 +20,66 @@ public class PlayerController : MonoBehaviour
     public GameObject playerModel;
     public float knockBackForce;
     public float knockBackTime;
+    public bool isAttacking = false;
     private float knockBackCounter;
-    
- 
+
+    public event UnityAction PlayerAttacking;
 
     void Update()
     {
+        Move();
+        Attack();
+    }
 
-       // moveDirection = new Vector3(Input.GetAxis("Horizontal") * moveSpeed, moveDirection.y, Input.GetAxis("Vertical") * moveSpeed);
-       if (knockBackCounter <= 0)
-       {
-           float yStore = moveDirection.y;
-           moveDirection = (transform.forward * Input.GetAxis("Vertical")) +
-                           (transform.right * Input.GetAxis("Horizontal"));
-           moveDirection = moveDirection.normalized * moveSpeed;
-           moveDirection.y = yStore;
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Attack"))
+        {
+            other.gameObject.GetComponent<CyclopesController>().SetIsInPlayerTrigger(true);
+            Debug.Log("isAtt " + isAttacking);
+        }
+    }
 
-           if (controller.isGrounded)
-           {
-               moveDirection.y = 0f;
-               if (Input.GetButtonDown("Jump"))
-               {
-                   moveDirection.y = jumpForce;
-               }
-           }
-       }
-       else
-       {
-           knockBackCounter -= Time.deltaTime;
-       }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Attack"))
+            other.gameObject.GetComponent<CyclopesController>().SetIsInPlayerTrigger(false);
+    }
+    
+    private void Attack()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            PlayerAttacking?.Invoke();
+        }
+    }
 
-       moveDirection.y = moveDirection.y + (Physics.gravity.y * gravityScale* Time.deltaTime);
+    private void Move()
+    {
+        // moveDirection = new Vector3(Input.GetAxis("Horizontal") * moveSpeed, moveDirection.y, Input.GetAxis("Vertical") * moveSpeed);
+        if (knockBackCounter <= 0)
+        {
+            float yStore = moveDirection.y;
+            moveDirection = (transform.forward * Input.GetAxis("Vertical")) +
+                            (transform.right * Input.GetAxis("Horizontal"));
+            moveDirection = moveDirection.normalized * moveSpeed;
+            moveDirection.y = yStore;
+
+            if (controller.isGrounded)
+            {
+                moveDirection.y = 0f;
+                if (Input.GetButtonDown("Jump"))
+                {
+                    moveDirection.y = jumpForce;
+                }
+            }
+        }
+        else
+        {
+            knockBackCounter -= Time.deltaTime;
+        }
+
+        moveDirection.y = moveDirection.y + (Physics.gravity.y * gravityScale* Time.deltaTime);
         controller.Move(moveDirection * Time.deltaTime);
         
         //move the player in different directions based on camera look direction 
@@ -61,6 +94,11 @@ public class PlayerController : MonoBehaviour
         
         anim.SetBool("isGrounded", controller.isGrounded);
         anim.SetFloat("Speed", (Mathf.Abs(Input.GetAxis("Vertical")) + Mathf.Abs(Input.GetAxis("Horizontal"))));
+    }
+
+    public void AttackTrue()
+    {
+        isAttacking = true;
     }
 
     public void KnockBack(Vector3 direction)
