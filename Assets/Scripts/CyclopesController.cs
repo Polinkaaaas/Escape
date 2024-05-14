@@ -22,9 +22,8 @@ public class CyclopesController : MonoBehaviour
     }
 
     private void Update()
-    {   
-       PlayerAttackingCyclopes(playerController.playerDamage);
-       Debug.Log(Mathf.Abs(this.gameObject.transform.position.x - player.transform.position.x));
+    {
+        CheckDeath();
     }
 
     private void OnTriggerEnter (Collider other)
@@ -38,17 +37,18 @@ public class CyclopesController : MonoBehaviour
         }
     }
 
-    private void PlayerAttackingCyclopes(int playerDamage)
+    private void CheckDeath() {
+        if (health <= 0)
+            Destroy(this.gameObject);
+    }
+
+    public void PlayerAttackingCyclopes(int playerDamage)
     {
-        if (playerController.isAttacking && Vector3.Distance(this.gameObject.transform.position, player.transform.position) <=2.0f)
+        if (playerController.GetAttackValue())
         {
             health -= playerDamage;
-            playerController.isAttacking = false;
+            playerController.SetAttackValue(false);
         }
     }
 
-    public void SetIsInPlayerTrigger(bool value)
-    {
-        isInPlayerTrigger = value;
-    }
 }

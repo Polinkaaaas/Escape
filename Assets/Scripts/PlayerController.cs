@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     public GameObject playerModel;
     public float knockBackForce;
     public float knockBackTime;
-    public bool isAttacking = false;
+    private bool isAttacking = false;
     private float knockBackCounter;
 
     public event UnityAction PlayerAttacking;
@@ -29,21 +29,6 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         Attack();
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Attack"))
-        {
-            other.gameObject.GetComponent<CyclopesController>().SetIsInPlayerTrigger(true);
-            Debug.Log("isAtt " + isAttacking);
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Attack"))
-            other.gameObject.GetComponent<CyclopesController>().SetIsInPlayerTrigger(false);
     }
     
     private void Attack()
@@ -96,9 +81,13 @@ public class PlayerController : MonoBehaviour
         anim.SetFloat("Speed", (Mathf.Abs(Input.GetAxis("Vertical")) + Mathf.Abs(Input.GetAxis("Horizontal"))));
     }
 
-    public void AttackTrue()
+    public void SetAttackValue(bool value)
     {
-        isAttacking = true;
+        isAttacking = value;
+    }
+
+    public bool GetAttackValue() {
+        return isAttacking;
     }
 
     public void KnockBack(Vector3 direction)

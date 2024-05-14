@@ -7,7 +7,6 @@ public class PlayerAnimationController : MonoBehaviour
     [SerializeField] private PlayerController playerController;
     [SerializeField] private Animator playerAnimator;
     
-    // Start is called before the first frame update
     void Start()
     {
         playerController.PlayerAttacking += PlayerAttacking;

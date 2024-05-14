@@ -26,7 +26,7 @@ public class AttackStateMachine : StateMachineBehaviour
             isNextPlaying = (Time.time - beginPoint) > stateInfo.length / 2.0f;
             if (isNextPlaying)
             {
-                player.gameObject.GetComponent<PlayerController>().AttackTrue();
+                player.gameObject.GetComponent<PlayerController>().SetAttackValue(true);
                 beginPoint = Time.time;
                 check = false;
             }
@@ -36,7 +36,7 @@ public class AttackStateMachine : StateMachineBehaviour
             isNextPlaying = (Time.time - beginPoint) > stateInfo.length;
             if (isNextPlaying)
             {
-                player.gameObject.GetComponent<PlayerController>().AttackTrue();
+                player.gameObject.GetComponent<PlayerController>().SetAttackValue(true);
                 beginPoint = Time.time;
             }
         }
@@ -45,5 +45,9 @@ public class AttackStateMachine : StateMachineBehaviour
         {
             animator.SetBool("isAttacking", false);
         }
+    }
+
+    public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+        player.gameObject.GetComponent<PlayerController>().SetAttackValue(false);
     }
 }
