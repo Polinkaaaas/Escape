@@ -14,11 +14,24 @@ public class CyclopesController : MonoBehaviour
     
     public int damageToGive = 1;
     public AudioSource hurtSound;
+    public AudioSource hitSound;
+    public GameObject hitEffect;
+    public GameObject deathEffect;
+    public Transform hitEffectTransform;
+    public Transform deathEffectTransform;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        if (hitEffectTransform == null) // Проверка, задан ли трансформ, если нет - используем основной
+        {
+            hitEffectTransform = transform;
+        }
+        if (deathEffectTransform == null) 
+        {
+            deathEffectTransform = transform;
+        }
     }
 
     private void Update()
@@ -37,9 +50,15 @@ public class CyclopesController : MonoBehaviour
         }
     }
 
-    private void CheckDeath() {
+    private void CheckDeath() 
+    
+    {
         if (health <= 0)
+        {
+            Instantiate(deathEffect, deathEffectTransform.position, deathEffectTransform.rotation);
+            Instantiate(hitSound, transform.position, transform.rotation);
             Destroy(this.gameObject);
+        }
     }
 
     public void PlayerAttackingCyclopes(int playerDamage)
@@ -48,6 +67,8 @@ public class CyclopesController : MonoBehaviour
         {
             health -= playerDamage;
             playerController.SetAttackValue(false);
+            Instantiate(hitEffect, hitEffectTransform.position, hitEffectTransform.rotation);
+            Instantiate(hitSound, transform.position, transform.rotation);
         }
     }
 

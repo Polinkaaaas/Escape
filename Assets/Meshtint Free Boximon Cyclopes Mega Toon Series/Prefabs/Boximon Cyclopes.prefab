@@ -135,6 +135,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4274285055804658}
   - component: {fileID: 95782878299265946}
+  - component: {fileID: 5052855710149653937}
+  - component: {fileID: 9052770993801112795}
   m_Layer: 0
   m_Name: Boximon Cyclopes
   m_TagString: Enemy
@@ -168,6 +170,8 @@ Transform:
   - {fileID: 4162510961399722}
   - {fileID: 4414078628824888}
   - {fileID: 4132992809962002}
+  - {fileID: 3536463654957420342}
+  - {fileID: 1849068393737607036}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -191,6 +195,39 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5052855710149653937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111084942782338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 872768e97bd8142709dbe871a50d0999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  damageToGive: 500
+  hurtSound: {fileID: 5675158833214465666, guid: 4e8137824ad3a4d3c94c888ca77617fc, type: 3}
+  hitSound: {fileID: 5675158833214465666, guid: 7c5aff9ed2a6f4b2189831a22c0d77f3, type: 3}
+  hitEffect: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  deathEffect: {fileID: 100004, guid: 7867af58a6ec48846ae807eb4022fbaa, type: 3}
+  hitEffectTransform: {fileID: 3536463654957420342}
+  deathEffectTransform: {fileID: 1849068393737607036}
+--- !u!65 &9052770993801112795
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111084942782338}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.59, z: 0}
 --- !u!1 &1159647506406770
 GameObject:
   m_ObjectHideFlags: 0
@@ -1293,3 +1330,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c20d6dc9dc4f1f043b0667651fedc33a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4952674040914698366
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1849068393737607036}
+  m_Layer: 0
+  m_Name: DeathEffectTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1849068393737607036
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4952674040914698366}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.31, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4274285055804658}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &9028298800072097178
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3536463654957420342}
+  m_Layer: 0
+  m_Name: HitEffectTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3536463654957420342
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9028298800072097178}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.44, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4274285055804658}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
