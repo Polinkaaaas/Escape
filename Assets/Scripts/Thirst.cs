@@ -44,7 +44,7 @@ public class Thirst : MonoBehaviour
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "DesertScene")
+        if (scene.name == "DesertScene1")
         {
             InitializeThirstLogic();
         }
