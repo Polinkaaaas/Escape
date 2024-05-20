@@ -5,13 +5,14 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-public class DesertSceneLoading : MonoBehaviour
+public class SceneLoading : MonoBehaviour
 {
+    public string sceneName;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene("DesertScene");
+            SceneManager.LoadScene(sceneName);
         }
     }
 }
