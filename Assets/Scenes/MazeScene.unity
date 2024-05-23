@@ -877,6 +877,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5052855710149653937, guid: 84493eaa65d75074ca2c6e2d8a90ff9a, type: 3}
+      propertyPath: health
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2438563492438843262, guid: 84493eaa65d75074ca2c6e2d8a90ff9a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 84493eaa65d75074ca2c6e2d8a90ff9a, type: 3}
@@ -1846,6 +1850,10 @@ PrefabInstance:
     - target: {fileID: 4274285055804658, guid: 84493eaa65d75074ca2c6e2d8a90ff9a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5052855710149653937, guid: 84493eaa65d75074ca2c6e2d8a90ff9a, type: 3}
+      propertyPath: health
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2438563492438843262, guid: 84493eaa65d75074ca2c6e2d8a90ff9a, type: 3}
@@ -3169,6 +3177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealthlPlayer: 10000
   maxHealthPet: 5000
+  sceneName: MazeScene
   thePlayer: {fileID: 2042747890}
   thePet: {fileID: 1589057483}
   healthBarPlayer: {fileID: 1274944729}
@@ -5035,6 +5044,10 @@ PrefabInstance:
     - target: {fileID: 4274285055804658, guid: 84493eaa65d75074ca2c6e2d8a90ff9a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5052855710149653937, guid: 84493eaa65d75074ca2c6e2d8a90ff9a, type: 3}
+      propertyPath: health
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2438563492438843262, guid: 84493eaa65d75074ca2c6e2d8a90ff9a, type: 3}
@@ -9166,7 +9179,7 @@ MonoBehaviour:
   target: {fileID: 936337456}
   offset: {x: 0, y: -6.21, z: 5.3}
   useOffsetValues: 1
-  rotateSpeed: 7
+  rotateSpeed: 4
   pivot: {fileID: 1038551657}
   maxViewAngle: 60
   minViewAngle: -60
@@ -10379,6 +10392,10 @@ PrefabInstance:
     - target: {fileID: 4274285055804658, guid: 84493eaa65d75074ca2c6e2d8a90ff9a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5052855710149653937, guid: 84493eaa65d75074ca2c6e2d8a90ff9a, type: 3}
+      propertyPath: health
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84493eaa65d75074ca2c6e2d8a90ff9a, type: 3}
@@ -12247,6 +12264,10 @@ PrefabInstance:
     - target: {fileID: 4274285055804658, guid: 84493eaa65d75074ca2c6e2d8a90ff9a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5052855710149653937, guid: 84493eaa65d75074ca2c6e2d8a90ff9a, type: 3}
+      propertyPath: health
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2438563492438843262, guid: 84493eaa65d75074ca2c6e2d8a90ff9a, type: 3}
@@ -17376,6 +17397,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 5052855710149653937, guid: 84493eaa65d75074ca2c6e2d8a90ff9a, type: 3}
+      propertyPath: health
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2438563492438843262, guid: 84493eaa65d75074ca2c6e2d8a90ff9a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 84493eaa65d75074ca2c6e2d8a90ff9a, type: 3}
@@ -19285,7 +19310,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 5
+  m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

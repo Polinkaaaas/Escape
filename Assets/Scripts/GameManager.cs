@@ -14,22 +14,22 @@ public class GameManager : MonoBehaviour
     public GameObject[] boxes; 
     public float openTime = 25f; // время в секундах, на которое открывается дверь
 
-    public void AddKeys(int keysToAdd)
+   public void AddKeys(int keysToAdd)
     {
-        if (currentKeys == 1)
+        currentKeys -= keysToAdd;
+        if (currentKeys <= 0)
         {
             doorText.text = "Door is open!";
             keysText.gameObject.SetActive(false);
             door.SetActive(false);
             StartCoroutine(CloseDoor(openTime));
         }
-        else
-            currentKeys -= keysToAdd;
         keysText.text = string.Format("{0} / {1}", currentKeys, totalKeys);
         
     }
+    
 
-    IEnumerator CloseDoor(float delay)
+   IEnumerator CloseDoor(float delay)
     {
         yield return new WaitForSeconds(delay);
         for (int i = 0; i < boxes.Length; i++) 

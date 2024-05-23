@@ -12,6 +12,7 @@ public class HealthManager : MonoBehaviour
     public int maxHealthPet;
     private int currentHealthPlayer;
     private int currentHealthPet;
+    public string sceneName;
 
     public PlayerController thePlayer;
     public PetController thePet;
@@ -67,7 +68,7 @@ public class HealthManager : MonoBehaviour
             {
                 deathText.text = "DEATH!";
                 await Task.Delay(1000);
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene(sceneName);
             }
             else
             {
@@ -79,28 +80,6 @@ public class HealthManager : MonoBehaviour
         }
         
     }
-
-   /* public async void HurtPlayer(int damage, Vector3? direction = null)
-    {
-        currentHealthPlayer -= damage;
-        UpdateHealthBarPlayer();
-            if (currentHealthPlayer <= 0)
-            {
-                deathText.text = "DEATH!";
-                await Task.Delay(1000);
-                SceneManager.LoadScene(0);
-            }
-            else
-            {
-                if (direction != null)
-                {
-                    thePlayer.KnockBack(direction.Value);
-                }
-            }
-        
-    }
-
-*/
     private void UpdateHealthBarPlayer()
     {
         healthBarPlayer.fillAmount = (float)currentHealthPlayer / maxHealthlPlayer;

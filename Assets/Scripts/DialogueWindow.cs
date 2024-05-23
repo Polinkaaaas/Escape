@@ -13,10 +13,7 @@ namespace Dialogue
         private TMP_Text _text;
         private DialogueStory _dialogueStory;
         
-           /* _text = GetComponent<TMP_Text>();
-            _dialogueStory = FindObjectOfType<DialogueStory>();
-            _dialogueStory.ChangedStory += ChangeAnswers;
-            */
+        
            private void Awake()
            {
                _text = GetComponent<TMP_Text>();

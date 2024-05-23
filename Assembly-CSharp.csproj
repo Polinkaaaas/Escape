@@ -114,7 +114,7 @@
     <Compile Include="Assets\Scripts\AnswersButtons.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX (legacy)\Demo\Assets\CFX_Demo_Translate.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
-    <Compile Include="Assets\Scripts\Thirst.cs" />
+    <Compile Include="Assets\Scripts\Needs.cs" />
     <Compile Include="Assets\Scripts\NPCTask.cs" />
     <Compile Include="Assets\Scripts\DialogueStory.cs" />
     <Compile Include="Assets\Scripts\AttackStateMachine.cs" />
